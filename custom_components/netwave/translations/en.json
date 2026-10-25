@@ -1,0 +1,47 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Netwave camera",
+        "description": "Enter the connection details for your Netwave camera.",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "username": "Username",
+          "password": "Password",
+          "name": "Name",
+          "timeout": "Timeout"
+        },
+        "data_description": {
+          "host": "IP address or hostname of the camera.",
+          "port": "HTTP port of the camera.",
+          "name": "Name used for the device and camera entity."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the camera",
+      "invalid_auth": "Invalid username or password",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "This camera is already configured"
+    }
+  },
+  "services": {
+    "send_command": {
+      "name": "Send command",
+      "description": "Send a PTZ or device command to a Netwave camera.",
+      "fields": {
+        "command": {
+          "name": "Command",
+          "description": "The command to send to the camera."
+        },
+        "parameter": {
+          "name": "Parameter",
+          "description": "Preset slot from 1 to 15. Required for set_preset and recall_preset."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+send_command:
+  name: Send command
+  description: Send a PTZ or device command to a Netwave camera.
+  target:
+    entity:
+      integration: netwave
+      domain: camera
+  fields:
+    command:
+      name: Command
+      description: The command to send to the camera.
+      required: true
+      example: move_up
+      selector:
+        select:
+          options:
+            - move_up
+            - move_down
+            - move_left
+            - move_right
+            - move_up_left
+            - move_up_right
+            - move_down_left
+            - move_down_right
+            - stop_movement
+            - move_center
+            - set_preset
+            - recall_preset
+            - patrol_horizontal
+            - stop_patrol_horizontal
+            - patrol_vertical
+            - stop_patrol_vertical
+            - pelco_patrol_horizontal
+            - pelco_stop_patrol_horizontal
+            - turn_io_on
+            - turn_io_off
+            - restart_camera
+            - factory_reset_camera
+    parameter:
+      name: Parameter
+      description: Preset slot from 1 to 15. Required for set_preset and recall_preset.
+      required: false
+      example: 1
+      selector:
+        number:
+          min: 1
+          max: 15
+          mode: box
